@@ -1,4 +1,4 @@
-const emojiList = [
+const arr = [
     {
       "emoji": "😀"
     , "description": "grinning face"
