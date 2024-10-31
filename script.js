@@ -1,74 +1,39 @@
+let key = document.querySelector(".key");
+let keyCode = document.querySelector(".KeyCode")
+let audio = document.querySelector("audio");
+let arr = [];
 
-let emojiContainer = document.querySelector(".emoji-container");
-let input = document.querySelector(".input");
+key.addEventListener("keydown" , (event) =>{
+   key.innerHTML = `<p>You have Pressed <span class = "green">${event.key}</span></p>`;
+   console.log(event.key)
+   arr.push(event.key);
+   let green = document.querySelector(".green");
+   green.style.color = "green"
+   audio.currentTime = "0.05";
+   audio.play();
+   green.style.fontSize = "3rem"
+   keyCode.style.fontSize = "3rem"
+   keyCode.style.color = "green";
+   keyCode.innerText = event.keyCode;
+})
 
-function showEmoji(searchValue) {
-  let filtered = arr.filter((element) => {
-    let tags = element.tags.join(" ").toLowerCase();
-    let description = element.description.toLowerCase();
-    let aliases = element.aliases.join(" ").toLowerCase();
-    let category = element.category.toLowerCase();
-    if (searchValue == undefined) {
-      return true;
-    }
+window.onload = ("load" , () =>{
+   alert("Click on the keyBoard Key container, to Enable the keypress functionality")
+})
 
-    if (searchValue == "all") {
-      return true;
-    }
-
-    if (tags.indexOf(searchValue) != -1) {
-      return true;
-    }
-
-    if (description.indexOf(searchValue) != -1) {
-      return true;
-    }
-
-    if (aliases.indexOf(searchValue) != -1) {
-      return true;
-    }
-
-   
-  });
-
-  filtered.forEach((value) => {
-    let box = document.createElement("p");
-    box.classList.add("emoji-box");
-    box.innerText = value.emoji;
-
-    //Copy Feature------------
-    box.addEventListener("click" , (event) =>{
-      let textCopy = event.target.innerText;
-      let textArea = document.createElement("textarea");
-      textArea.value = textCopy;
-     document.body.appendChild(textArea)
-      textArea.select();
-      document.execCommand('copy');
-
-      document.body.removeChild(textArea);
-
-      let copied = document.createElement('div');
-      copied.classList.add("copied");
-      alert("Copied to Clipboard")
-    })
-    //--------------
-    emojiContainer.appendChild(box);
- 
-   });
-}
-
-let all = document.querySelectorAll(".all").forEach((value) => {
-  value.addEventListener("click", (event) => {
-    emojiContainer.innerHTML = "";
-    showEmoji(event.target.innerText.toLowerCase());
-  });
+key.addEventListener("click", () =>{
+   alert("Now enjoy the keypress event by pressing each key on your keyboard! and u'll be surprised!!  ")
 });
 
-input.addEventListener("input", () => {
-  emojiContainer.innerHTML = "";
-  showEmoji(input.value.toLowerCase());
-});
+console.log(arr);
 
-window.onload = () => {
-  showEmoji();
-};
+let history = document.querySelector(".history");
+
+history.addEventListener("click",() =>{
+  let ans = ""
+   arr.forEach((value) =>{
+      ans = ans +" " + value;
+   })
+
+   history.innerText = ans;
+})
