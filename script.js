@@ -1,3 +1,4 @@
+
 let emojiContainer = document.querySelector(".emoji-container");
 let input = document.querySelector(".input");
 
@@ -71,4 +72,3 @@ input.addEventListener("input", () => {
 window.onload = () => {
   showEmoji();
 };
-
