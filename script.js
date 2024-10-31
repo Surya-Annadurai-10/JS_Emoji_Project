@@ -27,9 +27,7 @@ function showEmoji(searchValue) {
       return true;
     }
 
-    if (category.indexOf(searchValue) != -1) {
-      return true;
-    }
+   
   });
 
   filtered.forEach((value) => {
@@ -67,7 +65,7 @@ let all = document.querySelectorAll(".all").forEach((value) => {
 
 input.addEventListener("input", () => {
   emojiContainer.innerHTML = "";
-  showEmoji(input.value);
+  showEmoji(input.value.toLowerCase());
 });
 
 window.onload = () => {

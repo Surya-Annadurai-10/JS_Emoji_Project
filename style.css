@@ -45,14 +45,13 @@ header{
    display: flex;
    justify-content: center;
    align-items: center;
-   gap: 2rem;
+   gap: 1rem;
    flex-direction: column;
-   margin: 1rem 0;
 }
 
 header h1{
     font-size:3rem;
-    
+    margin: 1rem 0;
     /* background-color: yellow; */
     position: relative;
 }
@@ -67,12 +66,7 @@ header h1{
     font-weight: bold;
     cursor: pointer;
     transition: 0.2s ease-in;
-
 }
-/* 
-.nav{
-    margin-bottom: 2rem;
-} */
 
 .nav > div:hover{
     background-color: rgb(247, 148, 0);
